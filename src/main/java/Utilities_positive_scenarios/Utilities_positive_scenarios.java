@@ -23,8 +23,8 @@ public class Utilities_positive_scenarios extends Generic_function{
 		try {
 			Browser_Launch();
 			click("welcome_login");
-			driver.findElement(By.xpath(OR_reader("Object_Locator", "login_phone_number"))).sendKeys(td_reader("login_phone_number",8));
-			driver.findElement(By.xpath(OR_reader("Object_Locator", "login_password"))).sendKeys(td_reader("login_password",9));
+			driver.findElement(By.xpath(OR_reader("Object_Locator", "login_phone_number"))).sendKeys(td_reader("login_phone_number",6));
+			driver.findElement(By.xpath(OR_reader("Object_Locator", "login_password"))).sendKeys(td_reader("login_password",7));
 			click("login");
 			browser_wait(20);
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "logout"))).isDisplayed();
@@ -90,7 +90,7 @@ public class Utilities_positive_scenarios extends Generic_function{
 			browser_wait(10);
 			click("utilities");
 			click("wallet");
-			browser_wait(20);
+			Thread.sleep(1000);
 			click("utilities_add_card");
 			browser_wait(20);
 			driver.findElement(By.xpath(OR_reader("Object_Locator","utilities_save_as"))).sendKeys(td_reader("utilities_save_as"));
@@ -175,7 +175,7 @@ public class Utilities_positive_scenarios extends Generic_function{
 			browser_wait(20);
 			click("award_points");
 			browser_wait(20);
-			value=driver.findElement(By.xpath(OR_reader("Object_Locator", "awardpoints_redeem_button"))).isEnabled();
+//			value=driver.findElement(By.xpath(OR_reader("Object_Locator", "awardpoints_redeem_button"))).isEnabled();
 //			if(value==true) {
 //				browser_wait(40);
 //				click("awardpoints_redeem_button");
@@ -215,10 +215,10 @@ public class Utilities_positive_scenarios extends Generic_function{
 			browser_wait(40);
 			click("utilities");
 			click("award_points");
-//			browser_wait(20);
+			browser_wait(20);
 //			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "redeem_points_history"))).isDisplayed();
 //			Assert.assertEquals(true,value);	
-//			click("utilities");
+			click("utilities");
 			System.out.println("utilities +");
 			browser_close();
 		}catch (Exception e) {
