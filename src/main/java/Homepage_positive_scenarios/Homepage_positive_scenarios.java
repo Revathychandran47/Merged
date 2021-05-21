@@ -55,6 +55,7 @@ public class Homepage_positive_scenarios extends Generic_function {
 	public static void home_positive_tc_003() throws Exception {
 		try {
 			grid_tiles(OR_reader("Object_Locator", "grid_path"));
+			System.out.println("pass3");
 		}catch(Exception e) {
 			e.printStackTrace();
 			takeScreenShot("home_positive_tc_003");
@@ -65,15 +66,12 @@ public class Homepage_positive_scenarios extends Generic_function {
 	@When("User should be able to click on the Request for second opinion button and navigated to the Second opinion page successfully")
 	public void home_positive_tc_004() throws InterruptedException, Exception {
 		try {
-			ele = driver.findElement(By.xpath(OR_reader("Object_Locator","grid_opinion")));
-			ere= ele.getText();
-			if(ere.equalsIgnoreCase("Request a Second Opinion")) {
-				ele.click();
+			click("home");
+			click("grid_opinion");
 				value1=driver.findElement(By.xpath(OR_reader("Object_Locator", "request_second_opinion"))).isDisplayed();
 				Assert.assertEquals(true,value1);
 				browser_wait(5);
 				browser_back();
-			}
 		}catch(Exception e) {
 			e.printStackTrace();
 			takeScreenShot("home_positive_tc_004");
