@@ -22,7 +22,7 @@ public class Homepage_positive_scenarios extends Generic_function {
 		}
 	}
 
-	/*TC_001 Validate that the user is navigated to Welcome page*/
+	/* TC_001- Validate that the user is navigated to Welcome page */
 	@And("User clicks on Welcome Login button")
 	public static void home_positive_tc_001() throws IOException {
 		try {
@@ -35,56 +35,58 @@ public class Homepage_positive_scenarios extends Generic_function {
 		}
 	}
 
-	/*TC_002 Validate that the user is able to Login with valid credentials*/
+	/* TC_002-Validate that the user is able to Login with valid credentials */
 	@When("User enters valid phonenumber and password and User click on login")
 	public static void home_positive_tc_002() throws InterruptedException, IOException {
 		try {
-			driver.findElement(By.xpath(OR_reader("Object_Locator", "login_phone_number"))).sendKeys(td_reader("login_phone_number",6));
-			driver.findElement(By.xpath(OR_reader("Object_Locator", "login_password"))).sendKeys(td_reader("login_password",7));
+
+			driver.findElement(By.xpath(OR_reader("Object_Locator", "login_phone_number"))).sendKeys(td_reader("login_phone_number",7));
+			driver.findElement(By.xpath(OR_reader("Object_Locator", "login_password"))).sendKeys(td_reader("login_password",8));
 			click("login");
 			browser_wait(12);
-			browser_wait(5);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("home_positive_tc_002");
 		}
 	}
 
-	/*TC_003 Validate that the user is navigated to  the Home page and User should be able to click on all the grid tiles */
+	/*TC_003 -Validate that the user is navigated to  the Home page and User should be able to click on all the grid tiles */
 	@When("User should be able to click on all the grid tiles and it should be navigated to tile landing page according to that tile")
-	public static void home_positive_tc_003() throws Exception {
+	public static void home_positive_tc_003() throws IOException, InterruptedException {
+
 		try {
 			grid_tiles(OR_reader("Object_Locator", "grid_path"));
-			System.out.println("pass3");
-		}catch(Exception e) {
+        }catch(Exception e) {
 			e.printStackTrace();
 			takeScreenShot("home_positive_tc_003");
 		}
+		Thread.sleep(1000);				
 	}
 
-	/*TC_004 -Validate that the user is navigated to the Second Opinion page on clicking 'Request for second opinion' button*/
+	/* TC_004 -Validate that the user is navigated to the Second Opinion page on clicking 'Request for second opinion' button */
 	@When("User should be able to click on the Request for second opinion button and navigated to the Second opinion page successfully")
 	public void home_positive_tc_004() throws InterruptedException, Exception {
 		try {
 			click("home");
 			click("request_second_opinion_button");
-				value1=driver.findElement(By.xpath(OR_reader("Object_Locator", "request_second_opinion"))).isDisplayed();
-				Assert.assertEquals(true,value1);
-				browser_wait(5);
-				browser_back();
+			value1=driver.findElement(By.xpath(OR_reader("Object_Locator", "request_second_opinion"))).isDisplayed();
+			Assert.assertEquals(true,value1);
+			browser_wait(15);
+			browser_back();
 		}catch(Exception e) {
 			e.printStackTrace();
 			takeScreenShot("home_positive_tc_004");
 		}
 	}
 
-	/*TC_005-Validate that the user is navigated to the  Refer a friend page on clicking 'Refer a friend' button*/
+	/* TC_005-Validate that the user is navigated to the  Refer a friend page on clicking 'Refer a friend' button */
 	@When("User should be able to click on Refer a friend button and navigated to the Refer a friend page successfully")
 	public static void home_positive_tc_005() throws InterruptedException, IOException {
 		try {
 			click("refer_a_friend_button");
 			value1=driver.findElement(By.xpath(OR_reader("Object_Locator", "refer_a_friend"))).isDisplayed();
 			Assert.assertEquals(true,value1);
+			browser_wait(15);
 			browser_back();
 			System.out.println("home +");
 			browser_close();
