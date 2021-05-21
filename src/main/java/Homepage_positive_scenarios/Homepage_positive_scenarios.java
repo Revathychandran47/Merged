@@ -67,7 +67,7 @@ public class Homepage_positive_scenarios extends Generic_function {
 	public void home_positive_tc_004() throws InterruptedException, Exception {
 		try {
 			click("home");
-			click("grid_opinion");
+			click("request_second_opinion_button");
 				value1=driver.findElement(By.xpath(OR_reader("Object_Locator", "request_second_opinion"))).isDisplayed();
 				Assert.assertEquals(true,value1);
 				browser_wait(5);
@@ -82,7 +82,7 @@ public class Homepage_positive_scenarios extends Generic_function {
 	@When("User should be able to click on Refer a friend button and navigated to the Refer a friend page successfully")
 	public static void home_positive_tc_005() throws InterruptedException, IOException {
 		try {
-			click("grid_refer");
+			click("refer_a_friend_button");
 			value1=driver.findElement(By.xpath(OR_reader("Object_Locator", "refer_a_friend"))).isDisplayed();
 			Assert.assertEquals(true,value1);
 			browser_back();
