@@ -260,6 +260,7 @@ public class Generic_function {
 					browser_back();
 				}
 				else {
+					try {
 					ele.click();
 					value = driver.findElement(By.xpath(OR_reader("Object_Locator", ere))).getText();
 					value1 = driver.findElement(By.xpath(OR_reader("Object_Locator", ere))).isDisplayed();
@@ -267,13 +268,18 @@ public class Generic_function {
 					Assert.assertEquals(true,value1);	
 					browser_wait(5);
 					browser_back();	
+					}catch(Exception e) {
+						e.printStackTrace();
 				}
 			}
-		}catch(Exception e) {
+			}
+		}
+			catch(Exception e) {
 			e.printStackTrace();
 		}
 		browser_wait(5);
 	}
+
 
 	/* To click multiple tabs inside services page*/
 	public static void grid_tile(String grid_path) throws IOException, InterruptedException {
