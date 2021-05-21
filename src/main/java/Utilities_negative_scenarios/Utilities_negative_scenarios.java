@@ -23,8 +23,8 @@ public class Utilities_negative_scenarios  extends Generic_function{
 		try {
 			Browser_Launch();
 			click("welcome_login");
-			driver.findElement(By.xpath(OR_reader("Object_Locator", "login_phone_number"))).sendKeys(td_reader("login_phone_number",8));
-			driver.findElement(By.xpath(OR_reader("Object_Locator", "login_password"))).sendKeys(td_reader("login_password",9));
+			driver.findElement(By.xpath(OR_reader("Object_Locator", "login_phone_number"))).sendKeys(td_reader("login_phone_number",6));
+			driver.findElement(By.xpath(OR_reader("Object_Locator", "login_password"))).sendKeys(td_reader("login_password",7));
 			click("login");
 			browser_wait(40);
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "logout"))).isDisplayed();
@@ -57,7 +57,8 @@ public class Utilities_negative_scenarios  extends Generic_function{
 			click("utilities_add_card");
 			browser_wait(10);
 			click("utilities_save_button");
-			browser_wait(20);
+			browser_wait(30);
+			str= driver.findElement(By.xpath(OR_reader("Object_Locator","utilities_save_as_valid_msg"))).getText();
 			Assert.assertEquals(str,td_reader("utilities_save_as_valid_msg")); 
 			str= driver.findElement(By.xpath(OR_reader("Object_Locator","utilities_name_on_card_valid_msg"))).getText();
 			Assert.assertEquals(str,td_reader("utilities_name_on_card_valid_msg"));    
@@ -72,7 +73,8 @@ public class Utilities_negative_scenarios  extends Generic_function{
 			str= driver.findElement(By.xpath(OR_reader("Object_Locator","utilities_state_valid_msg"))).getText();
 			Assert.assertEquals(str,td_reader("utilities_state_valid_msg")); 
 			str= driver.findElement(By.xpath(OR_reader("Object_Locator","utilities_city_valid_msg"))).getText();
-			Assert.assertEquals(str,td_reader("utilities_city_valid_msg")); 			
+			Assert.assertEquals(str,td_reader("utilities_city_valid_msg")); 
+			System.out.println("pass2");
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -89,7 +91,7 @@ public class Utilities_negative_scenarios  extends Generic_function{
 			click("wallet");
 			browser_wait(10);
 			click("utilities_add_card");
-			browser_wait(20);
+			Thread.sleep(1000);
 			driver.findElement(By.xpath(OR_reader("Object_Locator","utilities_save_as"))).sendKeys(td_reader("utilities_save_as"));
 			driver.findElement(By.xpath(OR_reader("Object_Locator","utilities_name_on_card"))).sendKeys(td_reader("utilities_name_on_card"));
 			Thread.sleep(1000);
@@ -187,10 +189,10 @@ public class Utilities_negative_scenarios  extends Generic_function{
 	public static void utilities_positive_tc_006() throws Exception{
 		try {
 			click("utilities");
-			browser_wait(40);
+			browser_wait(20);
 			click("award_points");
-			Thread.sleep(1000);
-			value=driver.findElement(By.xpath(OR_reader("Object_Locator", "awardpoints_redeem_button"))).isEnabled();
+//			browser_wait(4=20);
+//			value=driver.findElement(By.xpath(OR_reader("Object_Locator", "awardpoints_redeem_button"))).isEnabled();
 //			if(value==true) {
 //				Thread.sleep(1000);
 //				click("awardpoints_redeem_button");				
@@ -213,7 +215,7 @@ public class Utilities_negative_scenarios  extends Generic_function{
 			browser_wait(20);
 			click("award_points");
 			browser_wait(20);
-			value=driver.findElement(By.xpath(OR_reader("Object_Locator", "awardpoints_redeem_button"))).isEnabled();
+//			value=driver.findElement(By.xpath(OR_reader("Object_Locator", "awardpoints_redeem_button"))).isEnabled();
 //			if(value==true) {
 //				browser_wait(20);
 //				click("awardpoints_redeem_button");
@@ -253,9 +255,9 @@ public class Utilities_negative_scenarios  extends Generic_function{
 			click("utilities");
 			browser_wait(40);
 			click("award_points");
-			click("awardpoints_redeem_button");
-			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "redeem_points"))).isEnabled();
-			Assert.assertEquals(true,value);
+//			click("awardpoints_redeem_button");
+//			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "redeem_points"))).isEnabled();
+//			Assert.assertEquals(true,value);
 			click("utilities");
 			System.out.println("Utilities -");
 			browser_close();
